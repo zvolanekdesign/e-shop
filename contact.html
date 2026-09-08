@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt — Lahev &amp; Tvar</title>
+<meta name="description" content="Kontaktujte Lahev &amp; Tvar ohledně vody s vlastním potiskem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap header-inner">
+  <a href="index.html" class="brand"><span class="brand-mark">◉</span> Lahev &amp; Tvar</a>
+  <nav class="main-nav"><a href="index.html#produkty">Lahve</a><a href="index.html#jak-to-funguje">Jak to funguje</a><a href="contact.html" class="nav-active">Kontakt</a><a href="cart.html">Košík <span class="cart-count">0</span></a></nav>
+</div></header>
+<main>
+<section class="contact-hero"><div class="wrap contact-hero-inner">
+  <div><div class="section-kicker">Kontakt</div><h1>Máte otázku?<br><span>Jsme tu pro vás.</span></h1><p>Potřebujete poradit s výběrem lahví, potiskem etikety nebo objednávkou? Napište nám a ozveme se vám.</p></div>
+  <div class="contact-hero-card"><div class="contact-icon">✉</div><div><div class="contact-card-label">E-mail</div><a href="mailto:zvolanek.info@gmail.com">zvolanek.info@gmail.com</a></div></div>
+</div></section>
+<section class="contact-section"><div class="wrap contact-grid">
+  <div class="contact-info">
+    <div class="section-kicker">Napište nám</div><h2>Rádi poradíme</h2><p>Pošlete nám zprávu. Pokud řešíte konkrétní objednávku, uveďte prosím její referenční kód.</p>
+    <div class="contact-info-list">
+      <div><strong>E-mail</strong><a href="mailto:zvolanek.info@gmail.com">zvolanek.info@gmail.com</a></div>
+      <div><strong>Objednávky</strong><span>Objednávku můžete pohodlně vytvořit přímo v e-shopu.</span></div>
+      <div><strong>Grafika</strong><span>Každý nahraný motiv před výrobou kontroluje náš grafik.</span></div>
+    </div>
+  </div>
+  <form class="contact-form" id="contact-form">
+    <label>Jméno a příjmení<input name="name" type="text" required></label>
+    <label>E-mail<input name="email" type="email" required></label>
+    <label>Telefon <span>(nepovinné)</span><input name="phone" type="tel"></label>
+    <label>Zpráva<textarea name="message" rows="7" required placeholder="Napište nám, s čím vám můžeme pomoci…"></textarea></label>
+    <button class="btn btn-primary btn-wide" type="submit">Odeslat zprávu</button>
+    <p class="contact-form-note">Po odeslání se otevře váš e-mailový program s připravenou zprávou.</p>
+  </form>
+</div></section>
+<section class="contact-bottom"><div class="wrap"><div class="contact-bottom-card"><div><div class="section-kicker">Potřebujete objednat?</div><h2>Vyberte si láhev a vytvořte vlastní etiketu.</h2></div><a class="btn btn-primary" href="index.html#produkty">Prohlédnout lahve</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><div><strong>Lahev &amp; Tvar</strong><p>Voda s vaším příběhem.</p></div><a href="index.html">Zpět na e-shop</a></div></footer>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const f=e.target;
+  const subject='Kontakt z webu Lahev & Tvar';
+  const body=[`Jméno: ${f.name.value.trim()}`,`E-mail: ${f.email.value.trim()}`,`Telefon: ${f.phone.value.trim() || '—'}`,'',f.message.value.trim()].join('\n');
+  window.location.href='mailto:zvolanek.info@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
