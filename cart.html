@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Košík — Lahev & Tvar</title>
+<meta name="description" content="Váš košík a dokončení objednávky — Lahev & Tvar.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap header-inner">
+  <a href="index.html" class="brand"><span class="brand-mark">◉</span> Lahev &amp; Tvar</a>
+  <nav class="main-nav"><a href="index.html#produkty">Lahve</a><a href="index.html#jak-to-funguje">Jak to funguje</a><a href="contact.html">Kontakt</a><a href="cart.html" class="nav-active">Košík <span id="cart-count" class="cart-count">0</span></a></nav>
+</div></header>
+<main id="top">
+<section id="kosik" class="cart-section"><div class="wrap"><div class="cart-card"><div class="section-kicker">Objednávka</div><h2>Váš košík</h2><div id="cart-empty" class="cart-empty">Košík je zatím prázdný. <a href="index.html#produkty">Prohlédnout láhve</a></div><div id="cart-items" class="cart-items"></div><div id="cart-summary" class="cart-summary" hidden><label class="control-label" for="cart-message">Zpráva k objednávce <span>(nepovinné)</span></label><textarea id="cart-message" rows="4" placeholder="Např. termín dodání, požadavky k etiketě nebo jiná zpráva…"></textarea><div class="cart-total"><span>Zboží celkem</span><strong id="cart-total-value">0 Kč</strong></div><button type="button" id="checkout-btn" class="btn btn-primary btn-wide">Pokračovat k údajům objednávky</button></div></div></div></section>
+<section id="checkout" class="checkout" hidden><div class="wrap"><div class="checkout-card"><div class="section-kicker">Dokončení objednávky</div><h2>Dodání a fakturace</h2><div class="shipping-block"><label class="control-label">Způsob doručení</label><div class="shipping-options"><label class="radio-option"><input type="radio" name="shipping-method" value="prague" checked><span>Doručení po Praze — zdarma</span></label><label class="radio-option"><input type="radio" name="shipping-method" value="pickup"><span>Osobní odběr — Praha 9, Vysočany — zdarma</span></label><label class="radio-option"><input type="radio" name="shipping-method" value="outside"><span>Doručení na adresu — sazba bude naceněna dle zadaných informací</span></label></div><div id="distance-calc" class="distance-calc" hidden><label class="control-label" for="shipping-address">Adresa pro nacenění dopravy</label><div class="distance-calc-row"><input type="text" id="shipping-address" placeholder="Ulice, město, PSČ"><button type="button" id="calc-shipping-btn" class="btn btn-secondary btn-small">Nacenit dopravu</button></div><p class="shipping-result" id="shipping-result"></p></div></div>
+<div class="payment-block"><label class="control-label">Způsob platby</label><label class="radio-option"><input type="radio" name="payment-method" value="online" checked><span>Platba převodem — platební údaje vám zašleme e-mailem po přijetí objednávky</span></label></div>
+<div class="checkout-totals" id="checkout-totals"></div>
+<form id="checkout-form" class="checkout-form">
+<div class="form-section"><h3>Kontaktní údaje</h3><div class="form-grid"><label>Jméno a příjmení<input type="text" name="name" required></label><label>Telefon<input type="tel" name="phone" required></label><label>E-mail<input type="email" name="email" required></label></div></div>
+<div class="form-section"><h3>Dodací adresa</h3><div class="form-grid"><label>Ulice<input type="text" name="street" required></label><label>Číslo popisné / orientační<input type="text" name="houseNumber" required></label><label>Město<input type="text" name="city" required></label><label>PSČ<input type="text" name="zip" required inputmode="numeric"></label></div></div>
+<div class="form-section"><h3>Fakturační údaje</h3><div class="billing-type"><label class="radio-option"><input type="radio" name="billingType" value="person" checked><span>Fyzická osoba</span></label><label class="radio-option"><input type="radio" name="billingType" value="company"><span>Firma</span></label></div><div id="company-fields" class="form-grid" hidden><label>Firma<input type="text" name="company"></label><label>IČO<div class="inline-field"><input type="text" name="ico" id="ico" inputmode="numeric"><button type="button" id="ares-btn" class="btn btn-secondary btn-small">Načíst z ARES</button></div></label><label>DIČ (nepovinné)<input type="text" name="dic"></label></div><div class="form-grid billing-address-fields"><label>Fakturační ulice<input type="text" name="billingStreet"></label><label>Číslo popisné / orientační<input type="text" name="billingHouseNumber"></label><label>Fakturační město<input type="text" name="billingCity"></label><label>Fakturační PSČ<input type="text" name="billingZip"></label></div><label class="checkbox-option"><input type="checkbox" name="billingSame" checked><span>Fakturační a dodací adresa jsou stejné</span></label></div>
+<label class="checkbox-option terms-check"><input type="checkbox" name="terms" required><span>Přešel/a jsem si <strong>obchodní podmínky</strong> a souhlasím s nimi.</span></label>
+<input type="hidden" name="address"><button type="submit" class="btn btn-primary btn-wide">Odeslat objednávku</button></form>
+<div id="order-success" class="order-success" hidden><h3>Objednávka byla odeslána</h3><p>Děkujeme. Ozveme se vám e-mailem s dalšími informacemi.</p><p>Číslo objednávky: <span class="order-ref"></span></p></div></div></div></section>
+</main><footer class="site-footer"><div class="wrap footer-inner"><div><strong>Lahev &amp; Tvar</strong><p>Voda s vaším příběhem.</p></div><a href="contact.html">Kontakt</a></div></footer><div id="toast" class="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="app.js?v=20260908-4"></script>
+</body></html>

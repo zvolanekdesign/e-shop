@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lahev & Tvar — vlastní potisk na lahve</title>
+<meta name="description" content="Vlastní potisk na lahvích Core a San Benedetto pro firmy.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap header-inner">
+  <a href="index.html" class="brand"><span class="brand-mark">◉</span> Lahev &amp; Tvar</a>
+  <nav class="main-nav"><a href="index.html#produkty">Lahve</a><a href="index.html#jak-to-funguje">Jak to funguje</a><a href="contact.html">Kontakt</a><a href="cart.html" id="cart-link">Košík <span id="cart-count" class="cart-count">0</span></a></nav>
+</div></header>
+<main id="top">
+
+<div class="wrap"><a href="index.html#produkty" class="back-link">&larr; Zpět na katalog</a></div>
+
+<section id="customizer" class="customizer"><div class="wrap customizer-inner"><div class="customizer-canvas-side"><canvas id="design-canvas" width="600" height="600"></canvas><p class="canvas-hint">Motiv posunete tažením přímo na etiketě.</p><p class="customizer-note"><strong>Slouží jen pro ilustraci.</strong> Náš grafik vaše data zkontroluje a v případě problémů vás bude kontaktovat.</p></div><div class="customizer-controls"><div class="section-kicker">Personalizace</div><h2 id="customizer-title"></h2><p class="customizer-price" id="customizer-price"></p><div id="tier-table" class="tier-table"></div><div class="control-block"><label class="control-label">Váš motiv</label><label for="file-input" class="upload-drop" id="upload-drop"><input type="file" id="file-input" accept="image/*,.pdf" hidden><span id="upload-drop-text">Přetáhněte soubor sem nebo klikněte pro výběr<br><small>JPG, PNG nebo PDF</small></span></label></div><div class="control-block" id="adjust-block" hidden><label class="control-label" for="scale-range">Velikost motivu</label><input type="range" id="scale-range" min="20" max="220" value="100"><button type="button" id="reset-position" class="btn btn-secondary btn-small">Vystředit motiv</button></div><div class="control-block" id="swatch-block" hidden><label class="control-label">Varianta etikety</label><div id="color-swatches" class="swatches"></div></div><div class="control-block"><label class="control-label" for="qty-input">Počet kusů</label><input type="number" id="qty-input" value="48" min="48" step="1" class="qty-input"><p class="qty-hint" id="qty-hint"></p></div></div></div></section>
+
+<section class="product-info-section"><div class="wrap"><div id="product-info" class="product-info"></div></div></section>
+
+<section class="add-to-cart-section"><div class="wrap"><button type="button" id="add-to-cart" class="btn btn-primary btn-wide btn-large" disabled>Nahrajte motiv pro přidání do košíku</button></div></section>
+
+<section class="related-products"><div class="wrap"><div class="section-kicker">Další produkty</div><h2>Mohlo by vás zajímat</h2><div id="related-grid" class="product-grid"></div></div></section>
+
+</main><footer class="site-footer"><div class="wrap footer-inner"><div><strong>Lahev &amp; Tvar</strong><p>Voda s vaším příběhem.</p></div><a href="contact.html">Kontakt</a></div></footer><div id="toast" class="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="app.js?v=20260908-4"></script>
+</body></html>
